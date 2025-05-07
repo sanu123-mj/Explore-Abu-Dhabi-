@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Abu Dhabi</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS Link (Ensure it's linked properly) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <!-- Add custom CSS here for refined styling -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #abc5ec;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        .header .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease-in-out;
+        }
+
+        .header .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .header .auth-icon {
+            display: flex;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .header .auth-icon ion-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        /* Call and Search Section */
+        .header .contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header .contact .phone {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .header .contact .search-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive Navbar */
+        @media (max-width: 768px) {
+            .header .nav-links {
+                display: none;
+            }
+
+            .header .burger-menu {
+                display: block;
+                cursor: pointer;
+            }
+
+            .burger-menu span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 5px 0;
+                transition: 0.4s;
+            }
+        }
+
+
+        #burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    margin: 50px;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+}
+
+/* The Lines of the Burger Menu */
+#burger-menu span,
+#burger-menu span:before,
+#burger-menu span:after {
+    background: #fff;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+
+#burger-menu span:before,
+#burger-menu span:after {
+    content: '';
+}
+
+/* Top Line */
+#burger-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 27px;
+}
+
+/* Middle Line */
+#burger-menu span {
+    right: 0px;
+    top: 13px;
+    width: 27px;
+}
+
+/* Bottom Line */
+#burger-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 27px;
+}
+
+/* Rotation on Click - Open and Close Transitions */
+#burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+}
+
+#burger-menu.close span {
+    transform: rotate(deg);
+    top: 13px;
+    width: 27px;
+}
+
+#burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+}
+
+/* Overlay Menu */
+#menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Overlay when menu is active */
+#menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Menu Items Styling */
+#menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    list-style: none;
+    margin: 30px 0;
+}
+
+#menu a {
+    color: #2aaae6;
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.image-container {
+    margin-top: 20px; /* Reduce space above the image */
+    text-align: center; /* Center the image */
+    position: relative; /* Needed for text overlay */
+}
+
+.image-container img {
+    width: 1400px; /* Adjust the width */
+    height: 1000px; /* Include px for height */
+    max-width: 100%; /* Ensure it scales with screen size */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(3, 0, 0);
+    font-size: 1.75em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional shadow for text clarity */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="image-container">
+        <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\event2.jpg" alt="Events Advertisement" class="main-image">
+        <div class="text-overlay">
+            <h1>Unveil the Unforgettable: Dive into Abu Dhabi's Hottest Events!</h1>
+        </div>
+    </div>
+
+
+  <!-- Header Section -->
+  <header class="header">
+      <div class="logo">
+          <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\Screenshot 2024-09-19 182556.png" alt="Explore Abu Dhabi Logo">
+          <h2>Explore Abu Dhabi</h2>
+      </div>
+
+      <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="C:\Users\lenovo\Desktop\html\touristplaces.html">where to go</a>
+          <a href="#">Stay Smart</a>
+          <a href="#">Navigate you</a>
+          <a href="C:/Users/lenovo/Desktop/HTML/contact.html">Contact Us</a>
+      </nav>
+
+      <div class="contact">
+          <div class="phone">
+              <ion-icon name="call-outline"></ion-icon>
+              <span>+971 569723931</span>
+          </div>
+          <button class="search-btn" aria-label="Search">
+              <ion-icon name="search-outline"></ion-icon>
+          </button>
+          <div class="auth-icon">
+              <a href="C:\Users\lenovo\Desktop\xammp\htdocs\phplogin\index1.php">
+                  <ion-icon name="person-circle-outline"></ion-icon>
+              </a>
+          </div>
+      </div>
+
+     <!-- Burger Menu Icon -->
+<div id="burger-menu">
+    <span></span>
+</div>
+
+<!-- Overlay Menu -->
+<div id="menu">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+    </ul>
+</div>
+
+
+  </header>
+
+  <script>
+    var burgerMenu = document.getElementById('burger-menu');
+    var overlay = document.getElementById('menu');
+
+    burgerMenu.addEventListener('click', function() {
+        // Toggle close class for burger menu animation
+        this.classList.toggle("close");
+        // Toggle overlay class to show/hide the menu
+        overlay.classList.toggle("overlay");
+    });
+</script>
+
+
+
+</style>
+
+</body>
+
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events in Abu Dhabi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section class="events-section">
+        <h2 class="events-headline">Don't Miss Out: Upcoming Events in Abu Dhabi</h2>
+        <div class="events-container">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\concert.jpg" alt="Concert Event" class="event-image">
+                <h3>Live Concert at Yas Island</h3>
+                <p>Experience the electrifying atmosphere with world-renowned artists performing live at Yas Island. Get your tickets now!</p>
+                <a href="https://www.etihadarena.ae/en/events" class="event-button" target="_blank">Explore Concert</a>
+            </div>
+            <!-- Event 2 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\2 food fest.jpg" alt="Festival Event" class="event-image">
+
+                 <h3>Abu Dhabi Food Festival</h3>
+                <p>Join us for a mouth-watering celebration of global cuisine! A foodie's paradise, right in the heart of Abu Dhabi.</p>
+                <a href="https://www.adife.com/" class="event-button" target="_blank">Discover Festival</a>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\Abu-Dhabi-Art-main1-750.jpg" alt="Art Fair Event" class="event-image">
+                <h3>Art Fair at Manarat Al Saadiyat</h3>
+                <p>Discover stunning artworks from local and international artists. Immerse yourself in creativity and culture.</p>
+                <a href="https://www.abudhabiart.ae/en/Art-Fair" class="event-button" target="_blank">See Art Fair</a>
+            </div>
+
+            <!-- Event 4 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\Formula-1-Abu-Dhabi-Grand-Prix-2024.jpg" alt="Formula 1 Abu Dhabi" class="event-image">
+                <h3>Formula 1 Abu Dhabi Grand Prix</h3>
+                <p>Feel the adrenaline rush as the world's fastest cars race under the Abu Dhabi skyline. Don't miss out on the ultimate motorsport event!</p>
+                <a href="https://www.formula1.com/en/racing/2024/united-arab-emirates" class="event-button" target="_blank">Join Race</a>
+            </div>
+
+            <!-- Event 5 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\iifa new.jpg" alt="IIFA Awards Abu Dhabi" class="event-image">
+                <h3>IIFA Awards Abu Dhabi</h3>
+                <p>Join Bollywood’s biggest stars at the glamorous IIFA Awards! A night of dazzling performances and star-studded celebrations.</p>
+                <a href="https://www.iifa.com/iifa-2024" class="event-button" target="_blank">Book Now</a>
+            </div>
+
+            <!-- Event 6 -->
+            <div class="event-card">
+                <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\Wireless-Festival-AD.webp" alt="Wireless Festival Middle East" class="event-image">
+                <h3>Wireless Festival Middle East</h3>
+                <p>Get ready for an epic weekend of music and vibes at the Wireless Festival in Abu Dhabi. Featuring top global artists and unmissable performances!</p>
+                <a href="https://www.wirelessfestival.me/" class="event-button" target="_blank">Attend Festival</a>
+            </div>
+<!-- Event 7 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\tennis award.jpeg" alt="Festival Event" class="event-image">
+
+     <h3>World Tennis League</h3>
+    <p>Experience the thrill of elite tennis stars competing live! A sporting spectacle, right in the heart of capital Abu Dhabi.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">Book Now</a>
+</div>
+
+<!-- Event 8 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\coldpaly.jpg" alt="Festival Event" class="event-image">
+
+     <h3>Cold Play Abu Dhabi</h3>
+    <p>Immerse yourself in Coldplay’s sensational live concert, where music, lights, and energy collide for an unforgettable experience in Abu Dhabi.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">Discover music</a>
+</div>
+
+<!-- Event 9 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\elf.jpg" alt="Festival Event" class="event-image">
+
+     <h3>ELF The Musical</h3>
+     <p>Step into a world of holiday magic with ELF The Musical! A heartwarming, joyful adventure awaits, bringing festive cheer to everyone.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">Discover Festival</a>
+</div>
+
+<!-- Event 10 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\airexpo.jpg" alt="Festival Event" class="event-image">
+
+     <h3>Air Expo Abu Dhabi</h3>
+     <p>Soar into the future of aviation at the Abu Dhabi Air Expo! Discover cutting-edge technology and breathtaking displays in an unforgettable event.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">fly to future</a>
+</div>
+
+<!-- Event 11 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\IDRA.jpeg" alt="Festival Event" class="event-image">
+
+     <h3>IDRA World Congress</h3>
+
+     <p>Explore groundbreaking innovations at the Congress! Gain insights into the latest desalination and water reuse technologies, driving sustainable water solutions.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">find out more</a>
+</div>
+<!-- Event 12 -->
+<div class="event-card">
+    <img src="C:\Users\lenovo\Desktop\xammp\htdocs\HTML\adnocmara.jpg" alt="Festival Event" class="event-image">
+
+     <h3>ADNOC Abu Dhabi Marathon 2024</h3>
+     <p>Join the excitement at the ADNOC Abu Dhabi Marathon 2024! Experience an inspiring celebration of fitness and community, set against the stunning cityscape.</p>
+    <a href="https://www.adife.com/" class="event-button" target="_blank">Run Now</a>
+</div>
+        </div>
+        <div class="more-events-container">
+          <a href="more-events.html" class="more-events-button">Book Your Ticket</a>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="newsletter-section">
+            <h3>Newsletter</h3>
+            <p>Be the first to know! Dive into Abu Dhabi’s vibrant scene with event highlights, travel inspiration, and exclusive news</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe now</button>
+            </form>
+        </div>
+        <div class="social-media-section">
+            <h3>Follow along</h3>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/javadmubassir/"><img src="C:\Users\lenovo\Desktop\HTML\istaaaaaa.png" alt="Instagram"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\yt......png" alt="YouTube"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\twitter.....png" alt="Twitter"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\fb.......png" alt="Facebook"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\linked   in.png" alt="LinkedIn"></a>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <a href="#">Terms and conditions</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Cookie policy</a>
+        </div>
+        <p>&copy; 2024 Explore Abu Dhabi. All Rights Reserved.</p>
+        <a href="#" class="scroll-to-top"><img src="up-arrow.png" alt="Back to top"></a>
+    </div>
+</footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+<script src="assets/js/script.js"></script>
+
+  
+
+  
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@6.0.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@6.0.0/dist/ionicons/ionicons.js"></script>
+
+
+
+

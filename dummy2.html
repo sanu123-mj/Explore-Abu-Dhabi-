@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourist Places Quiz</title>
+    <style>
+        .quiz-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .question {
+            font-size: 20px;
+        }
+        .options {
+            margin-top: 20px;
+        }
+        .options input {
+            margin-right: 10px;
+        }
+        .score, .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <div id="question-container">
+            <h1 id="question"></h1>
+            <div class="options">
+                <input type="radio" id="opt0" name="options" value="0">
+                <label for="opt0" id="label0"></label><br>
+                <input type="radio" id="opt1" name="options" value="1">
+                <label for="opt1" id="label1"></label><br>
+                <input type="radio" id="opt2" name="options" value="2">
+                <label for="opt2" id="label2"></label><br>
+                <input type="radio" id="opt3" name="options" value="3">
+                <label for="opt3" id="label3"></label><br>
+            </div>
+            <button id="submit-answer">Next Question</button>
+        </div>
+
+        <div class="score">
+            <p>Score: <span id="score">0</span></p>
+        </div>
+
+        <div class="result hidden">
+            <p id="final-result"></p>
+            <button id="restart">Restart</button>
+        </div>
+    </div>
+
+    <script>
+        var countQues = 0;
+        var score = 0;
+        var lang = "touristplacesQuestions";
+
+        // Your questions array
+        window.touristplacesQuestions = [
+            { question: "Which of the following is a popular museum in Abu Dhabi?", choices: ["Louvre Abu Dhabi", "The British Museum", "The Louvre Paris", "The Smithsonian Museum"], answer: 1 },
+            { question: "What is the name of the mosque in Abu Dhabi that is one of the largest in the world?", choices: ["Al Fateh Mosque", "Sheikh Zayed Grand Mosque", "Al Noor Mosque", "Sultan Qaboos Grand Mosque"], answer: 2 },
+            { question: "Which island in Abu Dhabi is known for its wildlife and nature reserves?", choices: ["Saadiyat Island", "Yas Island", "Sir Bani Yas Island", "Delma Island"], answer: 3 },
+            { question: "What is the famous shopping mall in Abu Dhabi that has an indoor ice rink?", choices: ["Marina Mall", "Yas Mall", "Abu Dhabi Mall", "The Galleria"], answer: 2 },
+            { question: "Which of the following is a popular park in Abu Dhabi known for its nature and relaxation?", choices: ["Al Ain Zoo", "Mangrove National Park", "Corniche Park", "Emirates Park Zoo"], answer: 3 },
+            { question: "What is the iconic Ferrari-themed amusement park in Abu Dhabi?", choices: ["Yas Waterworld", "Ferrari World Abu Dhabi", "Warner Bros. World", "Aquaventure Waterpark"], answer: 2 },
+            { question: "Which of the following is a famous cultural center in Abu Dhabi?", choices: ["Qasr Al Hosn", "Al Jahili Fort", "The Etihad Towers", "The National Museum of Dubai"], answer: 1 },
+            { question: "Which island is known for its luxury resorts and beaches in Abu Dhabi?", choices: ["Yas Island", "Saadiyat Island", "Sir Bani Yas Island", "Zaya Nurai Island"], answer: 4 },
+            { question: "Which theme park in Abu Dhabi is inspired by Warner Bros. characters?", choices: ["Ferrari World", "Warner Bros. World Abu Dhabi", "Yas Waterworld", "SeaWorld Abu Dhabi"], answer: 2 },
+            { question: "What is the name of the famous desert safari experience in Abu Dhabi?", choices: ["Liwa Desert Safari", "Al Dhafra Desert Safari", "Al Ain Desert Safari", "Abu Dhabi Desert Safari"], answer: 4 }
+        ];
+
+        // Display the current question
+        function displayQuestion() {
+            const currentQuestion = window[lang][countQues];
+            document.getElementById("question").textContent = currentQuestion.question;
+
+            for (let i = 0; i < currentQuestion.choices.length; i++) {
+                document.getElementById("label" + i).textContent = currentQuestion.choices[i];
+                document.getElementById("opt" + i).value = i;
+            }
+        }
+
+        // Check the answer and update score
+        function checkAnswer() {
+            const selectedOption = document.querySelector('input[name="options"]:checked');
+            if (!selectedOption) return;
+
+            const currentQuestion = window[lang][countQues];
+            const selectedAnswer = parseInt(selectedOption.value);
+
+            if (selectedAnswer === currentQuestion.answer - 1) {
+                score += 10;
+            } else {
+                score -= 5;
+            }
+
+            // Update score
+            document.getElementById("score").textContent = score;
+        }
+
+        // Next question or finish quiz
+        document.getElementById("submit-answer").addEventListener("click", function () {
+            checkAnswer();
+
+            // Move to next question or show result
+            if (countQues < window[lang].length - 1) {
+                countQues++;
+                displayQuestion();
+            } else {
+                document.getElementById("question-container").classList.add("hidden");
+                document.querySelector(".score").classList.add("hidden");
+                document.querySelector(".result").classList.remove("hidden");
+                document.getElementById("final-result").textContent = "Your final score is: " + score;
+            }
+        });
+
+        // Restart the quiz
+        document.getElementById("restart").addEventListener("click", function () {
+            score = 0;
+            countQues = 0;
+            document.querySelector(".result").classList.add("hidden");
+            document.getElementById("question-container").classList.remove("hidden");
+            document.querySelector(".score").classList.remove("hidden");
+            document.getElementById("score").textContent = score;
+            displayQuestion();
+        });
+
+        // Start quiz by displaying the first question
+        displayQuestion();
+    </script>
+</body>
+</html>

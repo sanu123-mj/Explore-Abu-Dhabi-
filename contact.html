@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <!-- Link to your CSS file -->
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+
+
+  <style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Header Section */
+    .header {
+        background-color: #abc5ec;
+        color: white;
+        padding: 20px;
+        padding-bottom: 2px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-heading {
+    margin-top: 20px; /* Adjust this value as needed */
+    text-align: center; /* Optional: Center the heading */
+}
+
+
+
+
+
+    .header .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .header .logo img {
+        max-height: 50px;
+        margin-right: 15px;
+    }
+
+    .header .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .header .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s ease-in-out;
+    }
+
+    .header .nav-links a:hover {
+        color: #FFD700;
+    }
+
+    .header .auth-icon {
+        display: flex;
+        align-items: center;
+        color: white;
+        cursor: pointer;
+    }
+
+    .header .auth-icon ion-icon {
+        font-size: 24px;
+        margin-left: 10px;
+    }
+
+    /* Call and Search Section */
+    .header .contact {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .header .contact .phone {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: white;
+        font-size: 14px;
+    }
+
+    .header .contact .search-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    /* Mobile Responsive Navbar */
+    @media (max-width: 768px) {
+        .header .nav-links {
+            display: none;
+        }
+
+        .header .burger-menu {
+            display: block;
+            cursor: pointer;
+        }
+
+        .burger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+    }
+
+
+    #burger-menu {
+cursor: pointer;
+height: 27px;
+width: 27px;
+margin: 50px;
+overflow: visible;
+position: relative;
+z-index: 2;
+}
+
+/* The Lines of the Burger Menu */
+#burger-menu span,
+#burger-menu span:before,
+#burger-menu span:after {
+background: #fff;
+display: block;
+height: 2px;
+opacity: 1;
+position: absolute;
+transition: 0.3s ease-in-out;
+}
+
+#burger-menu span:before,
+#burger-menu span:after {
+content: '';
+}
+
+/* Top Line */
+#burger-menu span:before {
+left: 0px;
+top: -10px;
+width: 27px;
+}
+
+/* Middle Line */
+#burger-menu span {
+right: 0px;
+top: 13px;
+width: 27px;
+}
+
+/* Bottom Line */
+#burger-menu span:after {
+left: 0px;
+top: 10px;
+width: 27px;
+}
+
+/* Rotation on Click - Open and Close Transitions */
+#burger-menu.close span:before {
+top: 0px;
+transform: rotate(90deg);
+width: 27px;
+}
+
+#burger-menu.close span {
+transform: rotate(deg);
+top: 13px;
+width: 27px;
+}
+
+#burger-menu.close span:after {
+top: 0px;
+left: 0;
+transform: rotate(90deg);
+opacity: 0;
+width: 0;
+}
+
+/* Overlay Menu */
+#menu {
+z-index: 1;
+min-width: 100%;
+min-height: 100%;
+position: fixed;
+top: 0;
+height: 0;
+background: rgba(0, 0, 0, 0.8);
+visibility: hidden;
+opacity: 0;
+text-align: center;
+padding-top: 20px;
+transition: all 0.3s ease-in-out;
+}
+
+/* Overlay when menu is active */
+#menu.overlay {
+visibility: visible;
+opacity: 1;
+padding-top: 100px;
+background: rgba(0, 0, 0, 0.5);
+}
+
+/* Menu Items Styling */
+#menu ul {
+padding: 0;
+margin: 0;
+}
+
+#menu li {
+list-style: none;
+margin: 30px 0;
+}
+
+#menu a {
+color: #2aaae6;
+display: block;
+font-size: 32px;
+margin-bottom: 30px;
+text-decoration: none;
+}
+
+.image-container {
+margin-top: 20px; /* Reduce space above the image */
+text-align: center; /* Center the image */
+position: relative; /* Needed for text overlay */
+}
+
+.image-container img {
+width: 1400px; /* Adjust the width */
+height: 1000px; /* Include px for height */
+max-width: 100%; /* Ensure it scales with screen size */
+}
+
+.text-overlay {
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+color: rgb(3, 0, 0);
+font-size: 1.75em;
+text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional shadow for text clarity */
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<!-- Header Section -->
+<header class="header">
+  <div class="logo">
+      <img src="C:/Users/lenovo/Desktop/HTML/Screenshot 2024-09-19 182556.png" alt="Explore Abu Dhabi Logo">
+      <h2>Explore Abu Dhabi</h2>
+  </div>
+
+  <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="C:\Users\lenovo\Desktop\html\touristplaces.html">where to go</a>
+      <a href="#">Stay Smart</a>
+      <a href="#">Navigate you</a>
+      <a href="C:/Users/lenovo/Desktop/HTML/contact.html">Contact Us</a>
+  </nav>
+
+  <div class="contact">
+      <div class="phone">
+          <ion-icon name="call-outline"></ion-icon>
+          <span>+971 569723931</span>
+      </div>
+      <button class="search-btn" aria-label="Search">
+          <ion-icon name="search-outline"></ion-icon>
+      </button>
+      <div class="auth-icon">
+          <a href="file:///C:/Users/lenovo/Desktop/html/registr.html">
+              <ion-icon name="person-circle-outline"></ion-icon>
+          </a>
+      </div>
+  </div>
+
+ <!-- Burger Menu Icon -->
+<div id="burger-menu">
+<span></span>
+</div>
+
+<!-- Overlay Menu -->
+<div id="menu">
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About Us</a></li>
+</ul>
+</div>
+
+
+</header>
+
+<script>
+var burgerMenu = document.getElementById('burger-menu');
+var overlay = document.getElementById('menu');
+
+burgerMenu.addEventListener('click', function() {
+    // Toggle close class for burger menu animation
+    this.classList.toggle("close");
+    // Toggle overlay class to show/hide the menu
+    overlay.classList.toggle("overlay");
+});
+</script>
+
+
+    <div class="contact_us">
+        <div class="responsive-container-block container">
+          <form class="form-box">
+            <p class="text-blk contact-head">
+              Get in touch
+            </p>
+            <p class="text-blk contact-subhead">
+                Let’s connect! Whether you’ve got questions, need assistance, or just want to say hello, we’re here for you. Reach out, and let’s make something amazing happen together!"
+            </p>
+            <div class="container-block form-wrapper">
+              <div class="responsive-container-block">
+                <div class="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-4">
+                  <p class="text-blk input-title">
+                    First Name
+                  </p>
+                  <input class="input" id="ijowk-4" name="FirstName">
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                  <p class="text-blk input-title">
+                    Last Name
+                  </p>
+                  <input class="input" id="indfi-3" name="Last Name">
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                  <p class="text-blk input-title">
+                    Email
+                  </p>
+                  <input class="input" id="ipmgh-4" name="Email">
+                </div>
+                <div class="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
+                  <p class="text-blk input-title">
+                    Phone No.
+                  </p>
+                  <input class="input" id="imgis-4" name="PhoneNumber">
+                </div>
+                <div class="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-4">
+                  <p class="text-blk input-title">
+                    Message
+                  </p>
+                  <textarea class="textinput" id="i5vyy-4" placeholder="Write your message..."></textarea>
+                </div>
+              </div>
+              <button class="submit-btn">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+
+        <!-- 
+    - #GO TO TOP
+  -->
+
+ <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="newsletter-section">
+            <h3>Newsletter</h3>
+            <p>Be the first to know! Dive into Abu Dhabi’s vibrant scene with event highlights, travel inspiration, and exclusive news</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit">Subscribe now</button>
+            </form>
+        </div>
+        <div class="social-media-section">
+            <h3>Follow along</h3>
+            <div class="social-icons">
+              <a href="https://www.instagram.com/javadmubassir/"><img src="C:\Users\lenovo\Desktop\HTML\istaaaaaa.png" alt="Instagram"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\yt......png" alt="YouTube"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\twitter.....png" alt="Twitter"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\fb.......png" alt="Facebook"></a>
+              <a href="#"><img src="C:\Users\lenovo\Desktop\HTML\linked   in.png" alt="LinkedIn"></a>
+          </div>
+
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-links">
+            <a href="#">Terms and conditions</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Cookie policy</a>
+        </div>
+        <p>&copy; 2024 Explore Abu Dhabi. All Rights Reserved.</p>
+        <a href="#" class="scroll-to-top"><img src="up-arrow.png" alt="Back to top"></a>
+    </div>
+</footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+<script src="assets/js/script.js"></script>
+
+  
+
+  
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@6.0.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@6.0.0/dist/ionicons/ionicons.js"></script>
+
+
+
+

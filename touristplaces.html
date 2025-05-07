@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Tourist Places in Abu Dhabi</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="touristplaces.css">
+
+
+    <style>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #abc5ec;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo img {
+            max-height: 50px;
+            margin-right: 15px;
+        }
+
+        .header .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s ease-in-out;
+        }
+
+        .header .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .header .auth-icon {
+            display: flex;
+            align-items: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .header .auth-icon ion-icon {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        /* Call and Search Section */
+        .header .contact {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header .contact .phone {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+            font-size: 14px;
+        }
+
+        .header .contact .search-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive Navbar */
+        @media (max-width: 768px) {
+            .header .nav-links {
+                display: none;
+            }
+
+            .header .burger-menu {
+                display: block;
+                cursor: pointer;
+            }
+
+            .burger-menu span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background-color: white;
+                margin: 5px 0;
+                transition: 0.4s;
+            }
+        }
+
+
+        #burger-menu {
+    cursor: pointer;
+    height: 27px;
+    width: 27px;
+    margin: 50px;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+}
+
+/* The Lines of the Burger Menu */
+#burger-menu span,
+#burger-menu span:before,
+#burger-menu span:after {
+    background: #fff;
+    display: block;
+    height: 2px;
+    opacity: 1;
+    position: absolute;
+    transition: 0.3s ease-in-out;
+}
+
+#burger-menu span:before,
+#burger-menu span:after {
+    content: '';
+}
+
+/* Top Line */
+#burger-menu span:before {
+    left: 0px;
+    top: -10px;
+    width: 27px;
+}
+
+/* Middle Line */
+#burger-menu span {
+    right: 0px;
+    top: 13px;
+    width: 27px;
+}
+
+/* Bottom Line */
+#burger-menu span:after {
+    left: 0px;
+    top: 10px;
+    width: 27px;
+}
+
+/* Rotation on Click - Open and Close Transitions */
+#burger-menu.close span:before {
+    top: 0px;
+    transform: rotate(90deg);
+    width: 27px;
+}
+
+#burger-menu.close span {
+    transform: rotate(deg);
+    top: 13px;
+    width: 27px;
+}
+
+#burger-menu.close span:after {
+    top: 0px;
+    left: 0;
+    transform: rotate(90deg);
+    opacity: 0;
+    width: 0;
+}
+
+/* Overlay Menu */
+#menu {
+    z-index: 1;
+    min-width: 100%;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    text-align: center;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Overlay when menu is active */
+#menu.overlay {
+    visibility: visible;
+    opacity: 1;
+    padding-top: 100px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Menu Items Styling */
+#menu ul {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    list-style: none;
+    margin: 30px 0;
+}
+
+#menu a {
+    color: #2aaae6;
+    display: block;
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.image-container {
+    margin-top: 20px; /* Reduce space above the image */
+    text-align: center; /* Center the image */
+    position: relative; /* Needed for text overlay */
+}
+
+.image-container img {
+    width: 1400px; /* Adjust the width */
+    height: 1000px; /* Include px for height */
+    max-width: 100%; /* Ensure it scales with screen size */
+}
+
+.text-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(3, 0, 0);
+    font-size: 1.75em;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Optional shadow for text clarity */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+
+
+<!-- Header Section -->
+<header class="header">
+    <div class="logo">
+        <img src="C:/Users/lenovo/Desktop/HTML/Screenshot 2024-09-19 182556.png" alt="Explore Abu Dhabi Logo">
+        <h2>Explore Abu Dhabi</h2>
+    </div>
+
+    <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="C:\Users\lenovo\Desktop\html\touristplaces.html">where to go</a>
+        <a href="#">Stay Smart</a>
+        <a href="#">Navigate you</a>
+        <a href="C:/Users/lenovo/Desktop/HTML/contact.html">Contact Us</a>
+    </nav>
+
+    <div class="contact">
+        <div class="phone">
+            <ion-icon name="call-outline"></ion-icon>
+            <span>+971 569723931</span>
+        </div>
+
+        <a href="C:/Users/lenovo/Desktop/html/search.html" class="search-btn" aria-label="Search">
+            <ion-icon name="search-outline"></ion-icon> <!-- This is the only search icon now -->
+        </a>
+
+
+        <div class="auth-icon">
+            <a href="C:\Users\lenovo\Desktop\xammp\htdocs\phplogin\index1.php">
+                <ion-icon name="person-circle-outline"></ion-icon>
+            </a>
+        </div>
+    </div>
+
+   <!-- Burger Menu Icon -->
+<div id="burger-menu">
+  <span></span>
+</div>
+
+<!-- Overlay Menu -->
+<div id="menu">
+  <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+  </ul>
+</div>
+
+
+</header>
+
+<script>
+  var burgerMenu = document.getElementById('burger-menu');
+  var overlay = document.getElementById('menu');
+
+  burgerMenu.addEventListener('click', function() {
+      // Toggle close class for burger menu animation
+      this.classList.toggle("close");
+      // Toggle overlay class to show/hide the menu
+      overlay.classList.toggle("overlay");
+  });
+</script>
+    </header>
+    <script src="https://unpkg.com/ionicons@5.5.2/dist/ionicons.js"></script>
+
+    <main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="myBtnContainer">
+            <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+            <button class="btn" onclick="filterSelection('adventure-seekers')"> adventure-seekers</button>
+            <button class="btn" onclick="filterSelection('Heritage-gems')">Heritage-gems</button>
+            <button class="btn" onclick="filterSelection('museums-with-a-flair')"> museums-with-a-flair</button>
+            <button class="btn" onclick="filterSelection('nature-eco-escapes')"> nature-eco-escapes</button>
+            <button class="btn" onclick="filterSelection('must-see-attractions')"> must see attractions</button>
+            <button class="btn" onclick="filterSelection('shopping-havens-souqs')"> shopping-havens-suoqs</button>
+        </div>
+
+
+<p></p>
+              <ul class="destination-list">
+                <li data-category="adventure-seekers">
+                    <img src="C:\Users\lenovo\Desktop\HTML\yas water.avif" alt="Yas Waterworld" style="width: 1100px; height: 500px;">
+                    <h3>Yas Waterworld</h3>
+                    <p>A thrilling water park with over 40 exhilarating rides and slides, offering something for everyone from adrenaline-pumping water slides to more relaxing, family-friendly attractions. The park is perfect for thrill-seekers looking to beat the heat while having fun. Its unique blend of adventure and relaxation makes it a top choice for families. Yas Waterworld ensures an unforgettable aquatic experience in Abu Dhabi.</p>
+                    <button class="how-to-reach">How to Reach</button>
+                    <a href="pdf/yas-waterworld.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="Heritage-gems">
+                    <iframe width="1000" height="450" src="https://www.youtube.com/embed/DQpltg4krGw?mute=1" frameborder="0" allowfullscreen></iframe>
+                    <h3>Qasr Al Hosn</h3>
+                    <p>This historical landmark is the oldest stone structure in Abu Dhabi and a symbol of the city’s heritage. The fortress has been transformed into a museum, offering insights into the history and culture of the UAE. Visitors can explore its exhibits, artifacts, and watch live cultural performances. A trip to Qasr Al Hosn is a journey through time, showcasing the evolution of the emirate.</p>
+                    <button class="how-to-reach">How to Reach</button>
+                    <a href="pdf/qasr-al-hosn.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="nature-eco-escapes">
+                    <img src="C:\Users\lenovo\Desktop\HTML\alain oasis.jpg" alt="Al Ain Oasis" style="width: 1100px; height: 500px;">
+                    <h3>Al Ain Oasis</h3>
+                    <p>A UNESCO World Heritage site, Al Ain Oasis is a tranquil haven with its lush palm groves and traditional falaj irrigation system. It provides a peaceful retreat in the heart of Al Ain, perfect for leisurely strolls amidst nature. The oasis is a great place to explore the region's agricultural heritage. It’s a refreshing escape from the urban environment, blending nature and history.</p>
+                    <button class="how-to-reach">How to Reach</button>
+                    <a href="alainoasis.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="museums-with-a-flair">
+                    <img src="C:\Users\lenovo\Desktop\html\louvre new.png" alt="Louvre" style="width: 1100px; height: 500px;">
+                    <h3>Louvre Museum</h3>
+                    <p>A cultural icon, the Louvre Abu Dhabi offers an extraordinary journey through art, history, and humanity. Its magnificent design is a stunning mix of modern architecture and traditional influences. The museum houses a vast collection of artworks and historical artifacts from across the world. Visitors can experience a blend of cultures, with exhibits spanning various time periods and civilizations.</p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="louvre.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="nature-eco-escapes">
+                    <img src="C:\Users\lenovo\Desktop\HTML\jabel hafeet.jpg" alt="jabel hafeet" style="width: 1100px; height: 500px;">
+                    <h3>Jabel Hafeet</h3>
+                    <p>This towering mountain near Al Ain offers breathtaking panoramic views of the desert landscape below. Adventurous visitors can hike or drive to the summit, where they’ll be rewarded with stunning vistas. The mountain also hosts archaeological sites, including ancient tombs. It’s an ideal spot for those seeking both a physical challenge and a connection to the region's history.
+                    </p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="jabelhafeet.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="must-see-attractions">
+                    <iframe width="1100" height="500" src="https://www.youtube.com/embed/fQNj-kLLahM" frameborder="0" allowfullscreen></iframe>
+                    <h3>Al Qattara Arts Centre</h3>
+                    <p> Located in a beautifully restored historic building, Al Qattara Arts Centre combines art, culture, and community. It offers a variety of workshops, exhibitions, and cultural events for visitors of all ages. The center provides a platform for both emerging and established artists to showcase their work. It’s a must-visit for anyone interested in the local art scene and creative expression.
+                        .</p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="alqattara.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="shopping-havens-souqs">
+                    <img src="C:\Users\lenovo\Desktop\HTML\Yas-Mall-Experience-Abu-Dhabi.jpg" alt="yas mall" style="width: 1100px; height: 500px;">
+                    <h3>Yas Mall</h3>
+                    <p>Yas Mall, A sleek shopping paradise, Yas Mall blends style and excitement with high-end brands, trendy cafes, and non-stop entertainment. The vibe is electric, drawing in both fashion lovers and thrill-seekers from Yas Island’s nearby attractions. With events popping up regularly, it’s a hotspot for anyone looking to shop, dine, and unwind in style.
+                    </p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="yasmall.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="must-see-attractions">
+                    <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="al ain zoo" style="width: 1100px; height: 500px;">
+                    <h3>Al Ain Zoo</h3>
+                    <p> One of the UAE’s most popular attractions, Al Ain Zoo is home to a wide array of wildlife, including endangered species. The zoo focuses on conservation and education, offering engaging exhibits and interactive experiences. Visitors can enjoy a day of learning and fun while supporting wildlife preservation efforts. The zoo is an ideal destination for families and animal lovers alike.
+                    </p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="alainzoo.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                <li data-category="adventure-seekers">
+                    <img src="C:\Users\lenovo\Desktop\HTML\ferrari world 123.webp" alt="ferrariworld" style="width: 1100px; height: 500px;">
+                    <h3>Ferrari World</h3>
+                    <p>"Ferrari World Abu Dhabi – Feel the adrenaline rush at this iconic theme park, home to the world’s fastest rollercoaster. From thrilling rides to Ferrari-inspired attractions, it’s a dream come true for speed lovers and families alike. Whether you're chasing high-speed excitement or enjoying unique experiences, Ferrari World promises unforgettable thrills.</p>
+                   <button class="how-to-reach">How to Reach</button>
+                    <a href="ferrariworld.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+
+
+    
+        
+                <li data-category="must-see-attractions">
+                    <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="al ain zoo" style="width: 1100px; height: 500px;">
+                    <h3>Al Ain Zoo</h3>
+                    <p> One of the UAE’s most popular attractions, Al Ain Zoo is home to a wide array of wildlife, including endangered species. The zoo focuses on conservation and education, offering engaging exhibits and interactive experiences. Visitors can enjoy a day of learning and fun while supporting wildlife preservation efforts. The zoo is an ideal destination for families and animal lovers alike.</p>
+                    <button class="how-to-reach">How to Reach</button>
+                    <a href="alainzoo.pdf" target="_blank" class="pdf-link">View PDF</a>
+                </li>
+                
+                <li data-category="must-see-attractions">
+                    <div class="museums-with-a-flair">
+                        <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="Wahat Al Karama" style="width: 1100px; height: 500px;">
+                        <h3>Wahat Al Karama</h3>
+                        <p>A national monument honoring the UAE's heroes, Wahat Al Karama features stunning architecture and tranquil water features. It’s a place of reflection and remembrance, symbolizing pride, sacrifice, and unity in the UAE's history.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="wahatalkarama.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="Heritage-gems">
+                    <div class="museums-with-a-flair">
+                        <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="delma_island" style="width: 1100px; height: 500px;">
+                        <h3>Delma Island</h3>
+                        <p>Delma Island is a remarkable heritage site that showcases the UAE's rich history and culture. Visitors can explore the local lifestyle, traditions, and stunning natural scenery, making it a unique destination for cultural enthusiasts.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="delma_island.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="Heritage-gems">
+                    <div class="heritage-gem">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/your_video_url" frameborder="0" allowfullscreen></iframe>
+                        <h3>Gayathi Village</h3>
+                        <p>Gayathi Village offers an authentic Emirati experience with its traditional markets and local culture. Surrounded by picturesque desert landscapes, it’s an ideal spot for travelers seeking unique adventures in a tranquil setting.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="gayathi_village.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="shopping-havens-souqs">
+                    <div class="shopping-haven">
+                        <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="madina_zayed_shopping" style="width: 1100px; height: 500px;">
+                        <h3>Madina Zayed Shopping Centre</h3>
+                        <p>Madina Zayed Shopping Centre is a vibrant hub for shoppers, offering a blend of local and international stores. It's a perfect place to discover fashion, electronics, and unique gifts, making it a must-visit for retail therapy.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="madina_zayed_shopping.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="nature-eco-escapes">
+                    <div class="eco-escape">
+                        <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="sila_village" style="width: 1100px; height: 500px;">
+                        <h3>Sila Village</h3>
+                        <p>Sila Village is a serene coastal escape featuring pristine beaches and untouched landscapes. It's the ideal getaway for nature lovers, offering a tranquil setting to experience the UAE's natural beauty and peaceful environment.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="sila_village.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="museums-with-a-flair">
+                    <div class="museum-flair">
+                        <img src="C:\Users\lenovo\Desktop\HTML\ala in zoo.jpeg" alt="Al ain classic_car_museum" style="width: 1100px; height: 500px;">
+                        <h3>Al Ain Classic Car Museum</h3>
+                        <p>The Al Ain Classic Car Museum is a treasure for automotive enthusiasts, showcasing vintage cars that narrate their stories. This museum is perfect for anyone fascinated by the rich automotive history and heritage of the UAE.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="classic_car_museum.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="Heritage-gems">
+                    <div class="heritage-gem">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/your_video_url" frameborder="0" allowfullscreen></iframe>
+                        <h3>Zayed National Museum</h3>
+                        <p>Zayed National Museum pays tribute to the UAE's founding father, showcasing the country’s history and future vision. Its stunning architecture and engaging exhibits make it a must-visit for anyone interested in the culture and history.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="zayed_national_museum.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="must-see-attractions">
+                    <div class="must-see">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/your_video_url" frameborder="0" allowfullscreen></iframe>
+                        <h3>Warner Bros Abu Dhabi</h3>
+                        <p>Warner Bros Abu Dhabi is an entertainment haven where iconic characters come to life. This family-friendly destination offers thrilling rides and immersive experiences, ensuring non-stop fun for visitors of all ages.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="warner_bros.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                
+                <li data-category="Heritage-gems">
+                    <div class="heritage-gem">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/your_video_url" frameborder="0" allowfullscreen></iframe>
+                        <h3>Heritage Village Abu Dhabi</h3>
+                        <p>The Heritage Village provides a glimpse into the UAE's Bedouin heritage, showcasing traditional crafts and lifestyles. It's an immersive cultural experience, perfect for travelers eager to learn about the rich history of the region.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="heritage_village.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+
+                <li data-category="Must-See Attractions">
+                    <div class="must-see">
+                        <img src="C:\Users\lenovo\Desktop\html\presipalace.jpg" alt="presidential_palace" style="width: 1100px; height: 500px;">
+                        <h3>Presidential Palace</h3>
+                        <p>The Presidential Palace represents the UAE's rich cultural legacy through its impressive architecture. A visit reveals the nation's traditions and governance, making it a captivating destination for anyone interested in Emirati history.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="presidential_palace.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+                <li data-category="nature-eco-escapes">
+                    <div class="eco-escape">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/_SAqSwli084" frameborder="0" allowfullscreen></iframe>
+
+                        <h3>Sir Baniyas Island</h3>
+                        <p>Sir Baniyas Island offers adventure with its wildlife reserve and water sports. This destination blends luxury with nature, ideal for thrill-seekers and those wanting to explore the wonders of the Arabian Gulf.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="sir_baniyas_island.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+
+
+                <li data-category="nature-eco-escapes" class="fw-destination-card">
+                    <div class="nature-eco-escapes">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/KpZ1It-lMTE" frameborder="0" allowfullscreen></iframe>
+
+                        <h3>Hudayriyat Beach</h3>
+                        <p>Hudayriyat Beach offers pristine shores, dedicated cycling tracks, and water sports facilities. It’s a perfect destination for outdoor enthusiasts, providing picturesque views of Abu Dhabi’s skyline and options for relaxation, fitness, and adventure.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="hudayriyat_beach.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+
+                <li data-category="adventure-seekers" class="fw-destination-card">
+                    <div class="adventure-seekers">
+                        <iframe width="1100" height="500" src="https://www.youtube.com/embed/_pl6Ku9povs" frameborder="0" allowfullscreen></iframe>
+
+                        <h3>Al Jubail Mangroves Park</h3>
+                        <p>Al Jubail Mangroves Park offers visitors a serene escape into nature, with boardwalks through the mangroves and opportunities for kayaking. It’s a must-see destination for those looking to explore Abu Dhabi's rich biodiversity and scenic beauty.</p>
+                        <button class="fw-reach-btn">How to Reach</button>
+                        <a href="al_jubail_mangroves_park.pdf" target="_blank" class="fw-pdf-link">View PDF</a>
+                    </div>
+                </li>
+
+
+
+
+
+
+                <script>
+                    function filterSelection(category) {
+                    var items, i;
+                    items = document.getElementsByClassName("destination-list")[0].getElementsByTagName("li");
+                    if (category == "all") category = "";
+                    for (i = 0; i < items.length; i++) {
+                        removeClass(items[i], "show");
+                        if (items[i].getAttribute("data-category").indexOf(category) > -1) addClass(items[i], "show");
+                    }
+                }
+                
+                // Show filtered elements
+                function addClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        if (arr1.indexOf(arr2[i]) == -1) {
+                            element.className += " " + arr2[i];
+                        }
+                    }
+                }
+                
+                // Hide elements that are not selected
+                function removeClass(element, name) {
+                    var i, arr1, arr2;
+                    arr1 = element.className.split(" ");
+                    arr2 = name.split(" ");
+                    for (i = 0; i < arr2.length; i++) {
+                        while (arr1.indexOf(arr2[i]) > -1) {
+                            arr1.splice(arr1.indexOf(arr2[i]), 1);
+                        }
+                    }
+                    element.className = arr1.join(" ");
+                }
+                
+                // Add active class to the current button (highlight it)
+                var btnContainer = document.getElementById("myBtnContainer");
+                var btns = btnContainer.getElementsByClassName("btn");
+                for (var i = 0; i < btns.length; i++) {
+                    btns[i].addEventListener("click", function() {
+                        var current = document.getElementsByClassName("active");
+                        current[0].className = current[0].className.replace(" active", "");
+                        this.className += " active";
+                    });
+                }
+                </script>
+                <style>
+                    /* Style the buttons */
+                .btn {
+                    border: none;
+                    outline: none;
+                    padding: 10px 20px;
+                    background-color: #f1f1f1;
+                    cursor: pointer;
+                    margin: 5px;
+                }
+                
+                .btn:hover {
+                    background-color: #ddd;
+                }
+                
+                .btn.active {
+                    background-color: #666;
+                    color: white;
+                }
+                
+                /* Style the list items */
+                .destination-list li {
+                    display: none; /* Hidden by default */
+                }
+                
+                .destination-list li.show {
+                    display: block; /* Show filtered items */
+                }
+                </style>

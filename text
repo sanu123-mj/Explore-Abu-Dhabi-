@@ -1,0 +1,12 @@
+<!-- Navigation Links (Hidden in Burger Menu) -->
+    <ul class="nav-links" id="nav-links">
+      <li><a href="://www.google.com">Where to go</a></li>
+      <li><a href="#What to do">What to do</a></li>
+      <li><a href="#Plan your trip">Plan your trip</a></li>
+      <li><a href="#Events">Events</a></li>
+      <li><a href="#Public Transport Routes">Public Transport Routes</a></li>
+      <li><a href="#Hotel booking">Hotel Booking</a></li>
+      <li><a href="#Abu Dhabi Map">Abu Dhabi Map</a></li>
+      <li><a href="#Mubi AI">Mubi AI</a></li>
+      <li><a href="#Contact">Contact Us</a></li>
+    </ul>
